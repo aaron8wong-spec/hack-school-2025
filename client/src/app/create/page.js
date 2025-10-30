@@ -6,9 +6,11 @@ import styles from "./page.module.css";
 import HomeButton from "@/components/HomeButton";
 
 export default function CreatePage() {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [owner, setOwner] = useState("");
+  // * Begin Activity 2a
+  //TODO: Create a set of hooks for the title, description, and owner
+const [example, setExample] = useState('');
+  // * End Activity
+
   const [options, setOptions] = useState([""]);
 
   const router = useRouter();
@@ -48,40 +50,24 @@ export default function CreatePage() {
       <HomeButton></HomeButton>
       <form onSubmit={handleSubmit} className={styles.formContainer}>
         <h1 className={styles.pollTitle}>Create Poll</h1>
-        <div className={styles.formRow}>
-          <label htmlFor="titleInput">Title:</label>
-          <input
-            id="titleInput"
-            className={styles.textInput}
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-        </div>
+        {/* ACTIVITY 2b STARTS */}
 
-        <div className={styles.formRow}>
-          <label htmlFor="descriptionInput">Description:</label>
-          <input
-            id="descriptionInput"
-            className={styles.textInput}
-            type="text"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </div>
+        <label> 
+          Example:
+          <input 
+            title = "ml-2 bg white text-black border" 
+            description = "hot dog or hamburger!"
+            ownerId = {example}
+            onChange = {(e) => setOwner(e.target.value)}
+            />
+         </label>
+        {/**
+         * //TODO: Create an input box for the title, description, and owner of the poll
+         * One way of displaying it is:
+         * Title: [         ]
+         */}
 
-        <div className={styles.formRow}>
-          <label htmlFor="ownerInput">Owner:</label>
-          <input
-            id="ownerInput"
-            className={styles.textInput}
-            type="text"
-            value={owner}
-            onChange={(e) => setOwner(e.target.value)}
-          />
-        </div>
-
-        <br></br>
+        {/* ACTIVITY END */}
 
         <label>Options:</label>
         {options.map((option, index) => (
